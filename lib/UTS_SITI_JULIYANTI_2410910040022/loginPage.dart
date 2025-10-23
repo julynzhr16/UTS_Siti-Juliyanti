@@ -11,35 +11,7 @@ class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   bool _showPassword = false;
-  bool _keepLoggedIn = false; // untuk checkbox
 
-void _login() {
-  final email = _emailController.text.trim();
-  final pass = _passController.text;
-
-  if (email.isEmpty || pass.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Email dan Password tidak boleh kosong!"),
-        backgroundColor: Colors.redAccent,
-      ),
-    );
-    return;
-  }
-
-  if (pass.length < 8) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Password minimal 8 karakter!"),
-        backgroundColor: Colors.orange,
-      ),
-    );
-    return;
-  }
-
-  Navigator.pushNamed(context, '/menu');
-}
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,10 +49,7 @@ void _login() {
               children: [
                 Text(
                   "Sign In",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 SizedBox(height: 5),
                 Text(
@@ -89,12 +58,7 @@ void _login() {
                 ),
                 SizedBox(height: 30),
 
-                Text(
-                  "Email",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text("Email", style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 5),
                 TextField(
                   controller: _emailController,
@@ -102,16 +66,14 @@ void _login() {
                     hintText: "email",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      ),
                     ),
                   ),
+                ),
                 SizedBox(height: 20),
 
                 Text(
                   "Password*",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
                 TextField(
@@ -121,17 +83,15 @@ void _login() {
                     hintText: "Min. 8 characters",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                     ),
-                     suffixIcon: IconButton(
+                    ),
+                    suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
                           _showPassword = !_showPassword;
                         });
                       },
                       icon: Icon(
-                        _showPassword
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                        _showPassword ? Icons.visibility : Icons.visibility_off,
                       ),
                     ),
                   ),
@@ -142,32 +102,32 @@ void _login() {
                   children: [
                     Checkbox(value: false, onChanged: (value) {}),
                     Text("Keep me logged in"),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  
-                  SizedBox(
-                      width: double.infinity,
-                      height: 55,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 67, 94, 116),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                        onPressed: _login,
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
+                  ],
+                ),
+                SizedBox(height: 10),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 55,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 67, 94, 116),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    onPressed: _login,
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),

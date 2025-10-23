@@ -11,20 +11,17 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                Image.asset(
-                  "gambar/logo.png", 
-                  width: 125
-                ),
-                SizedBox(width: 12),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 50,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("gambar/logo.png", width: 100),
+                SizedBox(width: 10),
                 Text(
                   "LKS MART",
                   style: TextStyle(
@@ -32,13 +29,11 @@ class _LoginState extends State<Login> {
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: TextAlign.left,
                 ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

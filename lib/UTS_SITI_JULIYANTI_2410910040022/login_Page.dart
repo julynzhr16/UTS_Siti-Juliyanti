@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
@@ -12,38 +12,48 @@ class _LoginState extends State<Login> {
   final TextEditingController _passController = TextEditingController();
   bool _showPassword = false;
 
+  void _login() {
+    String email = _emailController.text.trim();
+    String password = _passController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Email dan password tidak boleh kosong!")),
+      );
+      return;
+    }
+
+    Navigator.pushNamed(context, '/menu');
+  }
+
+  void _daftar() {
+    Navigator.pushNamed(context, '/daftar');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Column(
         children: [
-          Stack(
+          SizedBox(height: 50),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Positioned(
-                top: 50,
-                left: 0,
-                right: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("gambar/logo.png", width: 100),
-                    SizedBox(width: 10),
-                    Text(
-                      "LKS MART",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+              Image.asset("gambar/logo.png", width: 100),
+              SizedBox(width: 10),
+              Text(
+                "LKS MART",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
 
           Container(
-            margin: const EdgeInsets.only(top: 200, left: 30, right: 30),
+            margin: EdgeInsets.only(top: 100, left: 30, right: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -117,7 +127,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     onPressed: _login,
-                    child: const Text(
+                    child: Text(
                       "Login",
                       style: TextStyle(
                         color: Colors.white,
@@ -127,7 +137,17 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+
+                SizedBox(height: 15),
+                Center(
+                  child: TextButton(
+                    onPressed: _daftar,
+                    child: Text(
+                      "Belum punya akun? Daftar di sini",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

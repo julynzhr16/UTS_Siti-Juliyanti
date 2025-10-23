@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_3/UTS_SITI_JULIYANTI_2410910040022/loginPage.dart';
+import 'package:latihan_3/UTS_SITI_JULIYANTI_2410910040022/login_Page.dart';
 
 void main() {
   runApp(const MyApp());

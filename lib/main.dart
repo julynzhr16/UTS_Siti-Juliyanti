@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'UTS_SITI_JULIYANTI_2410910040022/loginPage.dart';
+import 'package:latihan_3/UTS_SITI_JULIYANTI_2410910040022/loginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: UTSLogin(),
+      home: Login(),
     );
   }
 }

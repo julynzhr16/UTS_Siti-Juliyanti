@@ -53,14 +53,21 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - gambar/juli.jpg
-    - gambar/001.png
-    - gambar/002.png
-    - gambar/ex3.png
-    - gambar/ex4.png
-    - gambar/card.jpg
-    - gambar/figure.png
-    - gambar/figure1.png
+    - gambar/001.jpg
+    - gambar/002.jpg
+    - gambar/003.jpg
+    - gambar/004.jpg
+    - gambar/administrator_1.png
+    - gambar/calendar-range.png
+    - gambar/cashier-1.png
+    - gambar/Delete.png
+    - gambar/Edit.png
+    - gambar/Gudang.png
+    - gambar/Logo.png
+    - gambar/Tambah1.png
+
+
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

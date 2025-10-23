@@ -17,10 +17,21 @@ class _UTSLoginState extends State<UTSLogin> {
           children: [
             Image.asset(
               "gambar/logo,png",
-            )
-          ],
+              width: 120,
+              ),
+              SizedBox(
+                height: 12,
+              )
+              Text(
+                "LKS MART",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold),
+              )
+            ],
         ),
       ),
-    )
+    );
   }
 }
